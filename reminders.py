@@ -119,7 +119,7 @@ def check_matches():
                     local_timezone = pytz.timezone("Asia/Kolkata")
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")                  
-                    print(f"{Fore.YELLOW}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}")
+                    print(f"{Fore.YELLOW}{Style.BRIGHT}Crazy Match: {home_team} vs {away_team} on {Formatted_India_time}")
         else:
             print("No normal matches either to be found for today")  
             
