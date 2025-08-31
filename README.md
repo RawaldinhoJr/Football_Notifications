@@ -1,0 +1,1 @@
+This Script on output tells the user about the matches where blue matches stands for the craziest matches upcoming in europe where both the teams are part of the elite clubs of the world and the yellow matches stand for matches which include one elite and the other a little less recognized team
