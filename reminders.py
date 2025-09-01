@@ -120,8 +120,10 @@ def check_matches():
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")                  
                     print(f"{Fore.YELLOW}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}")
+                else:
+                    print("No normal matches either to be found for today")
         else:
-            print("No normal matches either to be found for today")  
+            print("No Matches Today")  
             
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
