@@ -89,9 +89,7 @@ def check_matches():
                     local_timezone = pytz.timezone("Asia/Kolkata")
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")
-                    print(f"{Fore.BLUE}{Style.BRIGHT}CRAZY Match: {home_team} vs {away_team} on {Formatted_India_time}")
-          
-                    
+                    print(f"{Fore.BLUE}{Style.BRIGHT}CRAZY Match: {home_team} vs {away_team} on {Formatted_India_time}\n")              
                 elif home_team in slightpref_teams or away_team in slightpref_teams:
                     date = match['utcDate']
                     utc_time = datetime.fromisoformat(date.replace("Z", "+00:00"))
@@ -119,7 +117,7 @@ def check_matches():
                     local_timezone = pytz.timezone("Asia/Kolkata")
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")                  
-                    print(f"{Fore.YELLOW}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}")
+                    print(f"{Fore.YELLOW}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}\n")
                 else:
                     print("No normal matches either to be found for today")
         else:
