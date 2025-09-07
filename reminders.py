@@ -33,11 +33,11 @@ def check_matches():
         "Atlético de Madrid"
     ]
     slightpref_teams=[ "Manchester City FC","Liverpool FC","Chelsea FC","Arsenal FC" ,"Tottenham Hotspur FC",
-        "Manchester United FC"]
+        "Manchester United FC","Real Madrid CF"]
 
     api_token = "7745a56e6ef649f89bd2ae051679ea94"
     today = datetime.now()
-    end_date = today + timedelta(days=7)
+    end_date = today + timedelta(days=4)
     date_from = today.strftime('%Y-%m-%d')
     date_to = end_date.strftime('%Y-%m-%d')
     
@@ -54,6 +54,7 @@ def check_matches():
         data = response.json()
         
         if 'matches' in data and data['matches']: 
+            matches_found=False
             # if to check if dict contains match, and condnl to check if there is a match in the list matches
             for match in data['matches']:
                 # if match['status']=="SCHEDULED": 
@@ -62,6 +63,7 @@ def check_matches():
 
                 
                 if home_team in pref_teams and away_team in pref_teams :
+                    matches_found=True
                     date = match['utcDate']
                     utc_time = datetime.fromisoformat(date.replace("Z", "+00:00"))
                     now_utc = datetime.now(pytz.utc)
@@ -91,6 +93,7 @@ def check_matches():
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")
                     print(f"{Fore.BLUE}{Style.BRIGHT}CRAZY Match: {home_team} vs {away_team} on {Formatted_India_time}\n")              
                 elif home_team in slightpref_teams or away_team in slightpref_teams:
+                    matches_found=True
                     date = match['utcDate']
                     utc_time = datetime.fromisoformat(date.replace("Z", "+00:00"))
                     now_utc = datetime.now(pytz.utc)
@@ -118,8 +121,8 @@ def check_matches():
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")                  
                     print(f"{Fore.YELLOW}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}\n")
-                else:
-                    print("No normal matches either to be found for today")
+            if not matches_found:
+                print("No matches found for your preferred teams for the next 4 days")
         else:
             print("No Matches Today")  
             
