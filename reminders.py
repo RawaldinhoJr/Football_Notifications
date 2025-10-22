@@ -29,7 +29,7 @@ def check_matches():
         "FC Barcelona",
         "Real Madrid CF",
         "AC Milan",
-        "Atlético de Madrid",
+        "Club Atlético de Madrid",
         "SSC Napoli",
         "FC Bayern München"
     ]
@@ -135,4 +135,5 @@ def check_matches():
 
 if __name__ == "__main__":
     check_matches()
+    print("praks documents to be done")
     input("Press Enter to close....")
