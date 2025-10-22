@@ -29,8 +29,9 @@ def check_matches():
         "FC Barcelona",
         "Real Madrid CF",
         "AC Milan",
-        "Napoli FC",
-        "Atlético de Madrid"
+        "Atlético de Madrid",
+        "SSC Napoli",
+        "FC Bayern München"
     ]
     slightpref_teams=[ "Manchester City FC","Liverpool FC","Chelsea FC","Arsenal FC" ,"Tottenham Hotspur FC",
         "Manchester United FC","Real Madrid CF"]
@@ -91,7 +92,7 @@ def check_matches():
                     local_timezone = pytz.timezone("Asia/Kolkata")
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")
-                    print(f"{Fore.BLUE}{Style.BRIGHT}CRAZY Match: {home_team} vs {away_team} on {Formatted_India_time}\n")              
+                    print(f"{Fore.GREEN}{Style.BRIGHT}CRAZY Match: {home_team} vs {away_team} on {Formatted_India_time}\n")              
                 elif home_team in slightpref_teams or away_team in slightpref_teams:
                     matches_found=True
                     date = match['utcDate']
@@ -120,7 +121,7 @@ def check_matches():
                     local_timezone = pytz.timezone("Asia/Kolkata")
                     India_time = utc_time.astimezone(local_timezone)
                     Formatted_India_time = India_time.strftime("%A %B %d %Y at %I:%M %p")                  
-                    print(f"{Fore.YELLOW}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}\n")
+                    print(f"{Fore.RED}{Style.BRIGHT}Match: {home_team} vs {away_team} on {Formatted_India_time}\n")
             if not matches_found:
                 print("No matches found for your preferred teams for the next 4 days")
         else:
@@ -134,3 +135,4 @@ def check_matches():
 
 if __name__ == "__main__":
     check_matches()
+    input("Press Enter to close....")
